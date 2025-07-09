@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Layout from '@/components/Layout';
 import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,8 +11,7 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
+  const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -23,8 +23,6 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
-    setSuccess(false);
 
     try {
       const { error } = await supabase
@@ -39,11 +37,19 @@ const Contact: React.FC = () => {
 
       if (error) throw error;
 
-      setSuccess(true);
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+      
       setFormData({ name: '', email: '', message: '' });
     } catch (err: any) {
-      setError('Failed to send message. Please try again.');
       console.error('Contact form error:', err);
+      toast({
+        title: "Error sending message",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
     }
 
     setLoading(false);
@@ -100,18 +106,6 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
-                {error && (
-                  <div className="bg-red-500/10 border border-red-500 text-red-400 px-4 py-3 rounded-[5px]">
-                    {error}
-                  </div>
-                )}
-                
-                {success && (
-                  <div className="bg-green-500/10 border border-green-500 text-green-400 px-4 py-3 rounded-[5px]">
-                    Thank you! Your message has been sent successfully. We'll get back to you soon.
-                  </div>
-                )}
-                
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Name
