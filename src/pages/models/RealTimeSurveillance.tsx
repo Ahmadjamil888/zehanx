@@ -63,7 +63,7 @@ const RealTimeSurveillance: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-300">False Positive Rate:</span>
-                  <span className="text-white font-medium">< 3%</span>
+                  <span className="text-white font-medium">less than 3%</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-300">Supported Cameras:</span>

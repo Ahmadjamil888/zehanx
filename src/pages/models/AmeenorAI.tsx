@@ -65,7 +65,7 @@ const AmeenorAI: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-300">Inference Speed:</span>
-                  <span className="text-white font-medium">< 200ms</span>
+                  <span className="text-white font-medium">less than 200ms</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-300">Memory Usage:</span>
