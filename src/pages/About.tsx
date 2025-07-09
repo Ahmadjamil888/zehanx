@@ -184,23 +184,11 @@ const About: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  name: "Alex Chen",
-                  role: "Chief Technology Officer",
+                  name: "Ahmad jamil Dhami",
+                  role: "Chief Executive Officer",
                   specialization: "AI/ML Architecture",
-                  description: "10+ years in machine learning and neural network design."
+                  description: "5+ years in machine learning and neural network design."
                 },
-                {
-                  name: "Sarah Martinez",
-                  role: "Lead AI Engineer",
-                  specialization: "Deep Learning",
-                  description: "Expert in computer vision and natural language processing."
-                },
-                {
-                  name: "David Kim",
-                  role: "Senior Full-Stack Developer",
-                  specialization: "Web Development",
-                  description: "Specialist in React, Node.js, and cloud architecture."
-                }
               ].map((member, index) => (
                 <div key={index} className="team-card group">
                   <div className="h-full p-8 glass-card rounded-2xl transition-all duration-500 hover:scale-105">
