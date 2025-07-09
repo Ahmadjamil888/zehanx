@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
@@ -11,7 +10,7 @@ const Navbar: React.FC = () => {
   const [aiServicesOpen, setAiServicesOpen] = useState(false);
 
   return (
-    <nav className="bg-[#0a0f3c]/90 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+    <nav className="bg-black border-b border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -39,7 +38,7 @@ const Navbar: React.FC = () => {
                 <div
                   onMouseEnter={() => setModelsOpen(true)}
                   onMouseLeave={() => setModelsOpen(false)}
-                  className="absolute top-full left-0 mt-1 w-64 bg-[#1a1f3a] border border-gray-700 rounded-[5px] shadow-lg"
+                  className="absolute top-full left-0 mt-1 w-64 bg-black border border-gray-700 rounded-[5px] shadow-lg"
                 >
                   <Link to="/models/crypto-ai" className="block px-4 py-3 text-white hover:bg-gray-700 transition-colors">
                     Crypto AI
@@ -76,7 +75,7 @@ const Navbar: React.FC = () => {
                 <div
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
-                  className="absolute top-full left-0 mt-1 w-64 bg-[#1a1f3a] border border-gray-700 rounded-[5px] shadow-lg"
+                  className="absolute top-full left-0 mt-1 w-64 bg-black border border-gray-700 rounded-[5px] shadow-lg"
                 >
                   {/* Web Development Submenu */}
                   <div
@@ -88,7 +87,7 @@ const Navbar: React.FC = () => {
                       Web Development <ChevronDown className="ml-1 h-4 w-4 rotate-[-90deg]" />
                     </div>
                     {webDevOpen && (
-                      <div className="absolute left-full top-0 w-48 bg-[#1a1f3a] border border-gray-700 rounded-[5px] shadow-lg">
+                      <div className="absolute left-full top-0 w-48 bg-black border border-gray-700 rounded-[5px] shadow-lg">
                         <Link to="/services/web/nextjs" className="block px-4 py-3 text-white hover:bg-gray-700 transition-colors">
                           Next.js
                         </Link>
@@ -112,7 +111,7 @@ const Navbar: React.FC = () => {
                       AI Services <ChevronDown className="ml-1 h-4 w-4 rotate-[-90deg]" />
                     </div>
                     {aiServicesOpen && (
-                      <div className="absolute left-full top-0 w-48 bg-[#1a1f3a] border border-gray-700 rounded-[5px] shadow-lg">
+                      <div className="absolute left-full top-0 w-48 bg-black border border-gray-700 rounded-[5px] shadow-lg">
                         <Link to="/services/ai/fine-tuning" className="block px-4 py-3 text-white hover:bg-gray-700 transition-colors">
                           Fine-Tuning
                         </Link>
@@ -147,12 +146,12 @@ const Navbar: React.FC = () => {
             <Link to="/contact" className="text-white hover:text-gray-300 transition-colors">
               Contact
             </Link>
-            <Link to="/login" className="corporate-button">
+            <Link to="/login" className="text-white border border-white px-4 py-2 rounded-[5px] hover:bg-white hover:text-black transition">
               Login
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -166,7 +165,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-[#1a1f3a] rounded-[5px] mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-black rounded-[5px] mt-2">
               <Link to="/" className="block px-3 py-2 text-white hover:bg-gray-700 rounded-[5px]">
                 Home
               </Link>
